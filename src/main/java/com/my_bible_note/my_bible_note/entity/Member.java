@@ -2,9 +2,6 @@ package com.my_bible_note.my_bible_note.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-//import org.springframework.security.core.GrantedAuthority;
-
-import java.util.Collection;
 
 @Entity
 @Table(name = "member")

@@ -7,6 +7,7 @@ import com.my_bible_note.my_bible_note.enums.Testament;
 import lombok.*;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class BookDTO {
     private int value;

@@ -54,7 +54,7 @@ const Books = ({setChapterDrawerOpen}) => {
                         }
                     }}
                 >
-                    <ToggleButton value={book.value} aria-label="left aligned" sx={{ width: "10%", margin: theme.spacing(0.5) }}>
+                    <ToggleButton value={book.value} aria-label="left aligned">
                         {book.description}
                     </ToggleButton>
                 </StyledToggleButtonGroup>
