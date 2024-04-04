@@ -20,34 +20,6 @@ public class JwtTokenFilter extends GenericFilterBean {
 
     private JwtTokenProvider jwtTokenProvider;
 
-    @Autowired
-    public JwtTokenFilter(JwtTokenProvider jwtTokenProvider) {
-        this.jwtTokenProvider = jwtTokenProvider;
-    }
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
-        System.out.println("doFilterInternal");
-        try {
-            String token = JwtTokenProvider.resolveToken(request);
-            //토큰의 존재 여부 검사 및  유효성 검사
-            if (token != null && jwtTokenProvider.validateToken(token)) {
-                Authentication auth = jwtTokenProvider.getAuthentication(token);
-                SecurityContextHolder.getContext().setAuthentication(auth);
-            } else {
-                // 토큰이 유효하지 않을 경우 여기서 처리(401)
-                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.getWriter().write("Invalid token");
-                return;
-            }
-        } catch (Exception e) {
-            // 예외 처리(401)
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.getWriter().write("Invalid token or error occurred");
-            return;
-        }
-
-        filterChain.doFilter(request, response);
-    }
 
 
     @Override
