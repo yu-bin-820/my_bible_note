@@ -22,6 +22,7 @@ public class JwtTokenProvider {
     @Value("${jwt.access.token.expiration.seconds}")
     private long accessTokenExpirationInSeconds;
 
+    @Value("${jwt.token.secret-key}")
     private static String secretKey = "itsepguyitsepguyitsepgyitsitsits";
 
     public String createToken(int memberNo) {
